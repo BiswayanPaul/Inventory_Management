@@ -87,6 +87,7 @@ Features **JWT-based authentication**, **transaction-safe operations**, and **co
 
 4. Run the development server:
    ```bash
+   npx tsc
    npm run dev
    ```
    
