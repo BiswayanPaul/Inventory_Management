@@ -32,11 +32,13 @@ app.get('/', (req: Request, res: Response) => {
 import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes"
 import vendorOrCustomerRouter from "./routes/vendorOrCustomer.routes"
-
+import transactionRouter from "./routes/transaction.routes"
+import reportRouter from "./routes/report.routes"
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/product", productRouter)
 app.use("/api/v1/contacts", vendorOrCustomerRouter)
-
+app.use("/api/v1/transaction", transactionRouter)
+app.use("/api/v1/reports", reportRouter)
 
 export default app;
