@@ -312,9 +312,8 @@ GET /api/v1/reports/transactions?type=purchase&startDate=2025-09-01&endDate=2025
 ---
 
 ## Postman Collection Link
-```
-https://api.postman.com/collections/29178233-4db013d3-d0f8-45b4-a87d-42b3bc8d6562?access_key=PMAT-01K4D5MYXR095TEBTSY2YAKPWV
-```
+
+- Postman: [@PostmanCollection](https://api.postman.com/collections/29178233-4db013d3-d0f8-45b4-a87d-42b3bc8d6562?access_key=PMAT-01K4D5MYXR095TEBTSY2YAKPWV)
 
 
 ---
