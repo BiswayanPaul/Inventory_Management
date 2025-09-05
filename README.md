@@ -37,8 +37,7 @@ A robust Node.js + TypeScript backend solution for managing products, customers,
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/BiswayanPaul/InventoryandBillingManagement.git
-cd InventoryandBillingManagement
+git clone https://github.com/BiswayanPaul/Inventory_Management.git
 ```
 
 2. Install dependencies:
