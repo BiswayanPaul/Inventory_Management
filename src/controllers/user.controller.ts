@@ -68,10 +68,11 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id.toString());
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
 
-    const cookieOptions = {
+    const cookieOptions: import("express").CookieOptions = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production",
+        // sameSite: "lax"
+        sameSite: process.env.NODE_ENV === "production" ? "strict" : "none"
     };
 
     return res

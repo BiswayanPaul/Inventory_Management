@@ -53,7 +53,18 @@ const addTransaction = asyncHandler(async (req: AuthRequest, res: Response) => {
     const businessId = req.user.businessId;
     if (!businessId) throw new ApiError(400, "User does not belong to any business");
 
-    const { type, customerId, vendorId, products }: { type: "sale" | "purchase"; customerId?: string; vendorId?: string; products: TransactionItem[] } = req.body;
+    const {
+        type,
+        customerId,
+        vendorId,
+        products
+    }:
+        {
+            type: "sale" | "purchase";
+            customerId?: string;
+            vendorId?: string;
+            products: TransactionItem[]
+        } = req.body;
 
     if (!type || !["sale", "purchase"].includes(type)) {
         throw new ApiError(400, "Type must be either 'sale' or 'purchase'");
