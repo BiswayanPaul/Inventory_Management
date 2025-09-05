@@ -28,13 +28,15 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 
-// Import and use your routes here
+// Routes
 import userRouter from "./routes/user.routes";
 import productRouter from "./routes/product.routes"
+import vendorOrCustomerRouter from "./routes/vendorOrCustomer.routes"
 
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/product", productRouter)
+app.use("/api/v1/contacts", vendorOrCustomerRouter)
 
 
 export default app;

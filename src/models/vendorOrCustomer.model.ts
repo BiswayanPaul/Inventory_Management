@@ -8,23 +8,24 @@ export interface ICustomerVendor extends Document {
     email?: string;
     address?: string;
     type: CustomerVendorType;
-    businessId: Schema.Types.ObjectId;
+    businessId: string;
 }
 
 const customerVendorSchema = new Schema<ICustomerVendor>(
     {
         name: { type: String, required: true, trim: true, index: true },
-        phone: { type: String },
-        email: { type: String, lowercase: true, trim: true },
-        address: { type: String },
+        phone: { type: String, required: false },
+        email: { type: String, lowercase: true, trim: true, required: true },
+        address: { type: String, lowercase: true, trim: true, required: true },
         type: { type: String, enum: ["customer", "vendor"], required: true },
-        businessId: { type: Schema.Types.ObjectId, ref: "Business", required: true },
+        businessId: { type: String, required: true, index: true },
     },
     { timestamps: true }
 );
 
-
 customerVendorSchema.index({ businessId: 1, type: 1 });
+customerVendorSchema.index({ name: "text" });
+customerVendorSchema.index({ businessId: 1, email: 1 }, { unique: true, sparse: true });
 
 
 customerVendorSchema.set("toJSON", {
