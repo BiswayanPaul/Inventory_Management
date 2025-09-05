@@ -1,8 +1,8 @@
 {
     "info": {
         "name": "Inventory & Billing Management API",
-        "_postman_id": "f2e8a123-5678-4c9d-9d12-abcdef123456",
-        "description": "Postman collection for Inventory & Billing Management System backend.\n\nIncludes authentication, products, contacts, transactions, and reports endpoints.\n\nNote: Replace sample ObjectIds with actual ones from your DB.",
+        "_postman_id": "a1b2c3d4-5678-4efg-9hij-123456789abc",
+        "description": "Full Postman collection for Inventory & Billing Management System backend.\nIncludes authentication, products, contacts, transactions, and reports endpoints.\nReplace sample ObjectIds with actual ones from your DB.",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -68,6 +68,66 @@
                             ]
                         }
                     }
+                },
+                {
+                    "name": "Logout User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/users/logout",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                "logout"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Refresh Token",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/users/refresh-token",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                "refresh-token"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Current User",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/users/current-user",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                "current-user"
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -118,6 +178,107 @@
                                 "api",
                                 "v1",
                                 "products"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Product by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/products/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Product",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Gaming Laptop\",\n  \"price\": 1600\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/products/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Product",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/products/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Adjust Stock",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"quantity\": 5   // positive to increase, negative to decrease\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/products/:id/adjust-stock",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ":id",
+                                "adjust-stock"
                             ]
                         }
                     }
@@ -184,6 +345,75 @@
                             ]
                         }
                     }
+                },
+                {
+                    "name": "Get Contacts",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/contacts",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "contacts"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Contact",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Alice J. Updated\",\n  \"phone\": \"9876500000\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/contacts/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "contacts",
+                                ":id"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Contact",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:5000/api/v1/contacts/:id",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "api",
+                                "v1",
+                                "contacts",
+                                ":id"
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -202,7 +432,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"type\": \"sale\",\n  \"customerId\": \"64b12345abc\",\n  \"products\": [\n    {\n      \"productId\": \"64a12345abc\",\n      \"quantity\": 2,\n      \"price\": 1500\n    }\n  ]\n}"
+                            "raw": "{\n  \"type\": \"sale\",\n  \"customerId\": \"64b12345abc\",\n  \"products\": [\n    {\"productId\": \"64a12345abc\",\"quantity\": 2,\"price\": 1500}\n  ]\n}"
                         },
                         "url": {
                             "raw": "http://localhost:5000/api/v1/transactions",
@@ -231,7 +461,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"type\": \"purchase\",\n  \"vendorId\": \"64b67890xyz\",\n  \"products\": [\n    {\n      \"productId\": \"64a12345abc\",\n      \"quantity\": 5,\n      \"price\": 1200\n    }\n  ]\n}"
+                            "raw": "{\n  \"type\": \"purchase\",\n  \"vendorId\": \"64b67890xyz\",\n  \"products\": [\n    {\"productId\": \"64a12345abc\",\"quantity\": 5,\"price\": 1200}\n  ]\n}"
                         },
                         "url": {
                             "raw": "http://localhost:5000/api/v1/transactions",
@@ -249,11 +479,11 @@
                     }
                 },
                 {
-                    "name": "Get Transactions with Filters",
+                    "name": "Get Transactions",
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:5000/api/v1/transactions?type=sale&startDate=2025-09-01&endDate=2025-09-05",
+                            "raw": "http://localhost:5000/api/v1/transactions",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -263,20 +493,6 @@
                                 "api",
                                 "v1",
                                 "transactions"
-                            ],
-                            "query": [
-                                {
-                                    "key": "type",
-                                    "value": "sale"
-                                },
-                                {
-                                    "key": "startDate",
-                                    "value": "2025-09-01"
-                                },
-                                {
-                                    "key": "endDate",
-                                    "value": "2025-09-05"
-                                }
                             ]
                         }
                     }
@@ -311,7 +527,7 @@
                     "request": {
                         "method": "GET",
                         "url": {
-                            "raw": "http://localhost:5000/api/v1/reports/transactions?type=purchase&startDate=2025-09-01&endDate=2025-09-05",
+                            "raw": "http://localhost:5000/api/v1/reports/transactions",
                             "protocol": "http",
                             "host": [
                                 "localhost"
@@ -326,7 +542,7 @@
                             "query": [
                                 {
                                     "key": "type",
-                                    "value": "purchase"
+                                    "value": "sale"
                                 },
                                 {
                                     "key": "startDate",
