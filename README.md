@@ -55,7 +55,6 @@ ACCESS_TOKEN_SECRET=<JWT access token secret>
 ACCESS_TOKEN_EXPIRY=1d
 REFRESH_TOKEN_SECRET=<JWT refresh token secret>
 REFRESH_TOKEN_EXPIRY=30d
-BCRYPT_SALT_ROUNDS=10
 NODE_ENV=development
 ```
 
@@ -77,7 +76,6 @@ The server will be running on `http://localhost:5000`
 | ACCESS_TOKEN_EXPIRY | Access token expiration time | 1d |
 | REFRESH_TOKEN_SECRET | JWT refresh token secret key | - |
 | REFRESH_TOKEN_EXPIRY | Refresh token expiration time | 30d |
-| BCRYPT_SALT_ROUNDS | Salt rounds for password hashing | 10 |
 | NODE_ENV | Environment mode | development |
 
 ## 📡 API Routes
