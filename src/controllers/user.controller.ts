@@ -5,11 +5,9 @@ import asyncHandler from "../utils/asyncHandler";
 import ApiError from "../utils/ApiError";
 import { ApiResponse } from "../utils/ApiResponse";
 
-// Extend Request type to include `user`
+
 import { AuthRequest } from "../utils/types";
-// --------------------
-// Generate Access + Refresh Tokens
-// --------------------
+
 const generateAccessAndRefreshToken = async (userId: string) => {
 
     try {
@@ -32,9 +30,7 @@ const generateAccessAndRefreshToken = async (userId: string) => {
 
 };
 
-// --------------------
-// Register User
-// --------------------
+
 export const registerUser = asyncHandler(async (req: Request, res: Response) => {
     const { fullname, email, password, businessId } = req.body;
 
@@ -58,9 +54,7 @@ export const registerUser = asyncHandler(async (req: Request, res: Response) => 
     return res.status(201).json(new ApiResponse(200, createdUser, "User registered successfully"));
 });
 
-// --------------------
-// Login User
-// --------------------
+
 export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     const { email, password } = req.body;
     if (!email) throw new ApiError(400, "Email is required");
@@ -87,9 +81,7 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
         .json(new ApiResponse(200, { user: loggedInUser, accessToken, refreshToken }, "User logged in successfully"));
 });
 
-// --------------------
-// Logout User
-// --------------------
+
 export const logoutUser = asyncHandler(async (req: AuthRequest, res: Response) => {
     if (!req.user) throw new ApiError(401, "Unauthorized");
 
@@ -107,9 +99,7 @@ export const logoutUser = asyncHandler(async (req: AuthRequest, res: Response) =
         .json(new ApiResponse(200, {}, "User logged out successfully"));
 });
 
-// --------------------
-// Refresh Access Token
-// --------------------
+
 export const refreshAccessToken = asyncHandler(async (req: Request, res: Response) => {
     const incomingRefreshToken = req.cookies?.refreshToken || req.body.refreshToken;
     if (!incomingRefreshToken) throw new ApiError(401, "Unauthorized Request");
@@ -138,9 +128,8 @@ export const refreshAccessToken = asyncHandler(async (req: Request, res: Respons
     }
 });
 
-// --------------------
-// Get Current User
-// --------------------
+
+
 export const getCurrentUser = asyncHandler(async (req: AuthRequest, res: Response) => {
     if (!req.user) throw new ApiError(401, "Unauthorized");
     return res.status(200).json(new ApiResponse(200, req.user, "User fetched successfully"));

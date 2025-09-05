@@ -71,7 +71,7 @@ const getContacts = asyncHandler(async (req: AuthRequest, res: Response) => {
 
 
     const pageNum = Math.max(Number(page), 1);
-    const limitNum = Math.min(Number(limit), 100); // Max 100 per page
+    const limitNum = Math.min(Number(limit), 100); 
     const skip = (pageNum - 1) * limitNum;
 
     const contacts = await contactsQuery.skip(skip).limit(limitNum);
